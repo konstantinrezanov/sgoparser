@@ -1,14 +1,13 @@
 from time import sleep
 from parser import get_xlsx
+from os import system
 
 check_title='init'
-mass=get_xlsx(check_title,YOUR_LOGIN, YOUR_PASSWORD)
-check_title=mass[0]
+system('rm *.xlsx && rm ~/Downloads/*.xlsx')
+
+check_title=get_xlsx(check_title,YOUR_LOGIN, YOUR_PASSWORD)
 print ('Sleeping')
-print(mass[1])
 sleep(10)
 while True:
-    mass=get_xlsx(check_title,YOUR_LOGIN, YOUR_PASSWORD)
-    check_title=mass[0]
-    print(mass[1])
+    check_title=get_xlsx(check_title,YOUR_LOGIN, YOUR_PASSWORD)
     sleep(10)
