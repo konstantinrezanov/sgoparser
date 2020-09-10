@@ -9,7 +9,7 @@ system('rm *.xlsx && rm ~/Downloads/*.xlsx')
 
 check_title=get_xlsx(check_title,open('login.txt', 'r').read(), open('pass.txt', 'r').read())
 print ('Sleeping')
-sleep(1)
+sleep(600)
 
 wait(lambda: check_time())
 
