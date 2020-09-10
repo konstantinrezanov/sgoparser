@@ -27,7 +27,7 @@ def get_xlsx(check_title, login, passw):
         system('mv ~/Downloads/*  ./')
         system('mv *.xlsx init.xlsx')
         f=open('rasp.txt', 'w')
-        f.write(decoupler.decouple())
+        f.write(decoupler.decouple('10Б','E'))
         f.close()
     else:
         print('Skipping')
