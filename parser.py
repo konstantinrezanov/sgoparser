@@ -10,7 +10,7 @@ def get_xlsx(check_title, login, passw):
     driver.find_element_by_xpath('//select/option[text()="МАОУ Лицей №130"]').click()
     driver.find_element_by_name('UN').send_keys(login)
     driver.find_element_by_name('PW').send_keys(passw)
-    driver.find_element_by_name('PW').send_keys(Keys.RETURN)
+    #driver.find_element_by_name('PW').send_keys(Keys.RETURN)
     #driver.find_element_by_xpath('/html/body/div[2]/div[1]/div/div/div/div[1]/div/div/form/div/div[14]/a').click()
     try:
         driver.find_element_by_xpath('/html/body/div[1]/div/div/div/div/div[4]/div/div/div/div/button[2]').click()
