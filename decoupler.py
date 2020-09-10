@@ -4,11 +4,14 @@ def decouple(clas, column):
     ws=wb.active
     a=0
     rows=[]
-    for i in range(1, 41):
-        if ws[column+str(i)].value==clas:
-            a=i
-    for n in range(a+1, a+9):
-        rows.append(ws[column+str(n)].value)
+    for l in ['D', 'E', 'F', 'G', 'H']:
+        for i in range(1, 41):
+            if ws[l+str(i)].value==clas:
+                a=i
+                for n in range(a+1, a+9):
+                    rows.append(ws[l+str(n)].value)
+            else: 
+                continue
     return \
     clas+'\n\n'+\
     '1  '+'8:00-8:40  '+str(rows[0])+ \
