@@ -26,6 +26,9 @@ def get_xlsx(check_title, login, passw):
         sleep(1)
         system('mv ~/Downloads/*  ~/GitHub/lyceum130parser/')
         system('mv *.xlsx init.xlsx')
+        f=open('rasp.txt', 'w')
+        f.write(decoupler.decouple())
+        f.close()
     else:
         print('Skipping')
     driver.close()
