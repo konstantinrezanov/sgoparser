@@ -1,15 +1,16 @@
 import openpyxl
-def decouple():
+def decouple(clas, column):
     wb=openpyxl.load_workbook('init.xlsx')
     ws=wb.active
     a=0
     rows=[]
     for i in range(1, 41):
-        if ws['E'+str(i)].value=='10Б':
+        if ws[column+str(i)].value==clas:
             a=i
     for n in range(a+1, a+9):
-        rows.append(ws['E'+str(n)].value)
+        rows.append(ws[column+str(n)].value)
     return \
+    clas+'\n\n'+\
     '1  '+'8:00-8:40  '+str(rows[0])+ \
     '\n2  '+'8:50-9:30  '+str(rows[1])+ \
     '\n3  '+'9:50-10:30  '+ str(rows[2])+ \
