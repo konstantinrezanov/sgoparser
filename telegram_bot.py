@@ -15,7 +15,7 @@ def showb(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text=f.read())
 
 def showv(update, context):
-    f=open('raspbv.txt')
+    f=open('raspv.txt')
     context.bot.send_message(chat_id=update.effective_chat.id, text=f.read())
 
 start_handler = CommandHandler('start', start)
