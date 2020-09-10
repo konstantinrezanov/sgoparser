@@ -7,7 +7,7 @@ system('rm *.xlsx && rm ~/Downloads/*.xlsx')
 
 check_title=get_xlsx(check_title,YOUR_LOGIN, YOUR_PASSWORD)
 print ('Sleeping')
-sleep(300)
+sleep(600)
 while True:
     check_title=get_xlsx(check_title,YOUR_LOGIN, YOUR_PASSWORD)
-    sleep(300)
+    sleep(600)
