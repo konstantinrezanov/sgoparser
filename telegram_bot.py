@@ -1,6 +1,7 @@
 from telegram.ext import Updater, CommandHandler
 
-updater = Updater(token=open("token.txt", "r").read(), use_context=True)
+token1=open("token.txt", "r").read()
+updater = Updater(token=token1, use_context=True)
 dispatcher = updater.dispatcher
 
 import logging
