@@ -1,7 +1,7 @@
 from datetime import datetime
 def check_time():
     hour=datetime.now().hour
-    if ((hour<11) and (hour>=0)) or (hour>=22):
+    if ((hour<14) and (hour>=0)) or (hour>=20):
         return False
     else:
         return True
