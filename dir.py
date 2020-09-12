@@ -1,5 +1,4 @@
 import os.path
 
-def getdir():
-    subdirectory='./texts/'
-    return os.listdir(subdirectory)
+def getdir(path='./texts/'):
+    return os.listdir(path)
