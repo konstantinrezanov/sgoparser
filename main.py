@@ -11,7 +11,7 @@ while True: #restarts script in the case of an error
     else:
         tim=600
     check_title='init'
-    system('rm *.xlsx && rm ~/Downloads/*.xlsx')
+    system('rm ~/Downloads/*.xlsx')
 
     check_title=get_xlsx(check_title,open('login.txt', 'r').read(), open('pass.txt', 'r').read())
     system('rm ./tables/*.xlsx')
