@@ -12,12 +12,12 @@ def start(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Стильный, модный, молодежный парсер на питоне")
 
 def help(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Для получения рассписания введите номер и букву класса, а также дату.\nПример комманды: 10Б 14.09")
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Для получения расписания введите номер и букву класса, а также дату.\nПример комманды: 10Б 14.09")
 
 def get(update, context):
     input=update.message.text.split(" ")
     directory=getdir()
-    clas=input[0][-1]
+    clas=input[0][-1].capitalize()
     date=input[1]
     title='rasp'+clas+'_'+date+'.txt'
     for n in directory:
