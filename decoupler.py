@@ -1,6 +1,6 @@
 import openpyxl
-def decouple(clas, column):
-    wb=openpyxl.load_workbook('init.xlsx')
+def decouple(clas, title):
+    wb=openpyxl.load_workbook('./tables/'+title+'.xlsx')
     ws=wb.active
     a=0
     rows=[]

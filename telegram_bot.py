@@ -1,6 +1,7 @@
-from telegram.ext import Updater, CommandHandler
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from dir import getdir
 
-updater = Updater(token='1327123695:AAHMOrU3khDWTdQrD_pSbvP4aC1FlWrfOC4', use_context=True)
+updater = Updater(token='TOKEN', use_context=True)
 dispatcher = updater.dispatcher
 
 import logging
@@ -10,43 +11,25 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 def start(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Стильный, модный, молодежный парсер на питоне")
 
-def showa(update, context):
-    f=open('raspa.txt')
-    context.bot.send_message(chat_id=update.effective_chat.id, text=f.read())
+def help(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Для получения рассписания введите номер и букву класса, а также дату.\nПример комманды: 10Б 14.09")
 
-def showb(update, context):
-    f=open('raspb.txt')
-    context.bot.send_message(chat_id=update.effective_chat.id, text=f.read())
-
-def showv(update, context):
-    f=open('raspv.txt')
-    context.bot.send_message(chat_id=update.effective_chat.id, text=f.read())
-
-def showg(update, context):
-    f=open('raspg.txt')
-    context.bot.send_message(chat_id=update.effective_chat.id, text=f.read())
-
-def showd(update, context):
-    f=open('raspd.txt')
-    context.bot.send_message(chat_id=update.effective_chat.id, text=f.read())
+def get(update, context):
+    input=update.message.text.split(" ")
+    directory=getdir()
+    clas=input[0][-1]
+    date=input[1]
+    title='rasp'+clas+'_'+date+'.txt'
+    for n in directory:
+        if n==title:
+            update.message.reply_text(open('./texts/{}'.format(title)).read())
 
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
+help_handler = CommandHandler('help', help)
+dispatcher.add_handler(help_handler)
 
-showa_handler = CommandHandler('showa', showa)
-dispatcher.add_handler(showa_handler)
-
-showb_handler = CommandHandler('showb', showb)
-dispatcher.add_handler(showb_handler)
-
-showv_handler = CommandHandler('showv', showv)
-dispatcher.add_handler(showv_handler)
-
-showg_handler = CommandHandler('showg', showg)
-dispatcher.add_handler(showg_handler)
-
-showd_handler = CommandHandler('showd', showd)
-dispatcher.add_handler(showd_handler)
+dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, get))
 
 updater.start_polling()
 updater.idle()
