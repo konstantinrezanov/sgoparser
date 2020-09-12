@@ -4,6 +4,7 @@ from os import system
 from check_time import check_time
 from waiting import wait
 from datetime import datetime
+from cleaner import clean
 
 while True: #restarts script in the case of an error
     if datetime.now().hour>=16:
@@ -15,6 +16,7 @@ while True: #restarts script in the case of an error
 
     check_title=get_xlsx(check_title,open('login.txt', 'r').read(), open('pass.txt', 'r').read())
     system('rm ./tables/*.xlsx')
+    clean()
     print ('Sleeping')
     sleep(tim)
 
